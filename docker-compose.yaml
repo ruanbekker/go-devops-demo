@@ -19,7 +19,7 @@ services:
       DB_TYPE: ${DB_TYPE:-sqlite}
       DB_STORAGE: ${DB_STORAGE:-memory}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-"127.0.0.1,192.168.0.1"} 
-      GIN_MODE: ${GIN_MODE:-development}
+      GIN_MODE: ${GIN_MODE:-test}
       DB_HOST: ${DB_HOST:-db}
       DB_USER: ${DB_USER:-user}
       DB_PASSWORD: ${DB_PASSWORD:-password}
