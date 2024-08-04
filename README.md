@@ -17,6 +17,7 @@ The project is organized into the following directories:
 │   ├── controllers
 │   │   └── user_controller.go
 │   ├── models
+│   │   ├── user_dto.go
 │   │   └── user.go
 │   ├── repositories
 │   │   └── user_repository.go
@@ -33,7 +34,7 @@ The project is organized into the following directories:
 ├── LICENSE
 └── README.md
 
-11 directories, 14 files
+11 directories, 15 files
 ```
 
 ## Folder Structure
@@ -48,6 +49,7 @@ The project is organized into the following directories:
     - `user_controller.go`: Handles user-related HTTP requests.
   - `models/`: Contains the data models.
     - `user.go`: Defines the User model.
+    - `user_dto.go`: Defines the User data object (only exposes specific fields).
   - `repositories/`: Contains the code for data access.
     - `user_repository.go`: Handles CRUD operations for the User model.
   - `routers/`: Contains the router setup.
