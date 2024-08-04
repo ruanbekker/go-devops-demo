@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-devops-demo/models"
-	"github.com/go-devops-demo/services"
+	"github.com/ruanbekker/go-devops-demo/app/models"
+	"github.com/ruanbekker/go-devops-demo/app/services"
 )
 
 type UserController struct {
