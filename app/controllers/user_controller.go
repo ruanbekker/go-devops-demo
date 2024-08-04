@@ -23,7 +23,8 @@ func (c *UserController) GetUsers(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	ctx.JSON(http.StatusOK, users)
+	userDTOs := services.ToUserDTOs(users)
+	ctx.JSON(http.StatusOK, userDTOs)
 }
 
 func (c *UserController) GetUserByID(ctx *gin.Context) {
@@ -33,7 +34,8 @@ func (c *UserController) GetUserByID(ctx *gin.Context) {
 		ctx.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		return
 	}
-	ctx.JSON(http.StatusOK, user)
+	userDTO := services.ToUserDTO(user)
+	ctx.JSON(http.StatusOK, userDTO)
 }
 
 func (c *UserController) CreateUser(ctx *gin.Context) {
@@ -47,7 +49,8 @@ func (c *UserController) CreateUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	ctx.JSON(http.StatusOK, createdUser)
+	userDTO := services.ToUserDTO(createdUser)
+	ctx.JSON(http.StatusOK, userDTO)
 }
 
 func (c *UserController) UpdateUser(ctx *gin.Context) {
@@ -63,7 +66,8 @@ func (c *UserController) UpdateUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	ctx.JSON(http.StatusOK, updatedUser)
+	userDTO := services.ToUserDTO(updatedUser)
+	ctx.JSON(http.StatusOK, userDTO)
 }
 
 func (c *UserController) DeleteUser(ctx *gin.Context) {
@@ -75,3 +79,4 @@ func (c *UserController) DeleteUser(ctx *gin.Context) {
 	}
 	ctx.Status(http.StatusNoContent)
 }
+
