@@ -24,7 +24,7 @@ func main() {
 	userService := services.NewUserService(userRepository)
 	userController := controllers.NewUserController(userService)
 
-	r := routers.SetupRouter(userController)
+	r := routers.SetupRouter(userController, healthController)
 
 	trustedProxies := os.Getenv("TRUSTED_PROXIES")
 	if trustedProxies != "" {
