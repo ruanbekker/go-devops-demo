@@ -3,10 +3,14 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/ruanbekker/go-devops-demo/controllers"
+	"github.com/ruanbekker/go-devops-demo/middleware"
 )
 
 func SetupRouter(userController *controllers.UserController, healthController *controllers.HealthController) *gin.Engine {
 	r := gin.Default()
+
+	// Prometheus Middleware
+	r.Use(middleware.PrometheusMiddleware())
 
 	// API Routes
 	r.GET("/users", userController.GetUsers)
@@ -17,6 +21,9 @@ func SetupRouter(userController *controllers.UserController, healthController *c
 
 	// Healthcheck Routes
 	r.GET("/-/health/ready", healthController.CheckHealth)
+
+	// Prometheus metrics endpoint
+	r.GET("/metrics", middleware.PrometheusHandler())
 
 	return r
 }
