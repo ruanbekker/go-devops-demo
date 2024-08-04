@@ -17,6 +17,22 @@ type userService struct {
 	repository repositories.UserRepository
 }
 
+func ToUserDTO(user models.User) models.UserDTO {
+	return models.UserDTO{
+		ID:    user.ID,
+		Name:  user.Name,
+		Email: user.Email,
+	}
+}
+
+func ToUserDTOs(users []models.User) []models.UserDTO {
+	userDTOs := make([]models.UserDTO, len(users))
+	for i, user := range users {
+		userDTOs[i] = ToUserDTO(user)
+	}
+	return userDTOs
+}
+
 func NewUserService(repository repositories.UserRepository) UserService {
 	return &userService{repository}
 }
