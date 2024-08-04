@@ -6,11 +6,11 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ruanbekker/go-devops-demo/config"
-	"github.com/ruanbekker/go-devops-demo/controllers"
-	"github.com/ruanbekker/go-devops-demo/repositories"
-	"github.com/ruanbekker/go-devops-demo/routers"
-	"github.com/ruanbekker/go-devops-demo/services"
+	"github.com/ruanbekker/go-devops-demo/app/config"
+	"github.com/ruanbekker/go-devops-demo/app/controllers"
+	"github.com/ruanbekker/go-devops-demo/app/repositories"
+	"github.com/ruanbekker/go-devops-demo/app/routers"
+	"github.com/ruanbekker/go-devops-demo/app/services"
 )
 
 func main() {
