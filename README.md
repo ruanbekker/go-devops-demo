@@ -1,6 +1,6 @@
 # go-devops-demo
 
-This project is a Go RESTful API application with a PostgreSQL backend, built with a structured and organized approach. 
+This project is a Go RESTful API application with a PostgreSQL (or Sqlite) backend and Prometheus Metrics, built with a structured and organized approach. 
 
 ## Project Structure
 
