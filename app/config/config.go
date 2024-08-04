@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ruanbekker/go-devops-demo/app/models"
+	"github.com/ruanbekker/go-devops-demo/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
