@@ -2,8 +2,8 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/ruanbekker/go-devops-demo/controllers"
-	"github.com/ruanbekker/go-devops-demo/middleware"
+	"github.com/ruanbekker/go-devops-demo/app/controllers"
+	"github.com/ruanbekker/go-devops-demo/app/middleware"
 )
 
 func SetupRouter(userController *controllers.UserController, healthController *controllers.HealthController) *gin.Engine {
