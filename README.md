@@ -15,6 +15,7 @@ The project is organized into the following directories:
 │   ├── config
 │   │   └── config.go
 │   ├── controllers
+│   │   ├── health_controller.go
 │   │   └── user_controller.go
 │   ├── models
 │   │   ├── user_dto.go
@@ -34,7 +35,7 @@ The project is organized into the following directories:
 ├── LICENSE
 └── README.md
 
-11 directories, 15 files
+11 directories, 17 files
 ```
 
 ## Folder Structure
@@ -46,7 +47,10 @@ The project is organized into the following directories:
   - `config/`: Contains configuration-related code.
     - `config.go`: Handles the database connection and configuration settings.
   - `controllers/`: Contains the HTTP handler functions for the API.
+    - `health_controller.go`: Handles health check requests.
     - `user_controller.go`: Handles user-related HTTP requests.
+  - `middleware/`: Contains middleware functions that add additional functionality.
+    - `metrics.go`: Implements Prometheus metrics collection.
   - `models/`: Contains the data models.
     - `user.go`: Defines the User model.
     - `user_dto.go`: Defines the User data object (only exposes specific fields).
@@ -68,6 +72,10 @@ API Endpoints:
 - **POST /users**: Creates a new user.
 - **PUT /users/:id**: Updates an existing user by their ID.
 - **DELETE /users/:id**: Deletes a user by their ID.
+
+Metrics Endpoints:
+
+- **GET /metrics** : Prometheus metrics endpoint
 
 Healthcheck Endpoints:
 
