@@ -61,11 +61,17 @@ The project is organized into the following directories:
 
 ## Endpoints
 
+API Endpoints:
+
 - **GET /users**: Retrieves a list of all users.
 - **GET /users/:id**: Retrieves a user by their ID.
 - **POST /users**: Creates a new user.
 - **PUT /users/:id**: Updates an existing user by their ID.
 - **DELETE /users/:id**: Deletes a user by their ID.
+
+Healthcheck Endpoints:
+
+- **GET /-/health/ready** : Health check on the database
 
 ## Resources
 
