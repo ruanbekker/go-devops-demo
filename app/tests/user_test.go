@@ -6,11 +6,11 @@ import (
 	"net/http/httptest"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-	"github.com/go-devops-demo/controllers"
-	"github.com/go-devops-demo/models"
-	"github.com/go-devops-demo/repositories"
-	"github.com/go-devops-demo/services"
-	"github.com/go-devops-demo/config"
+	"github.com/ruanbekker/go-devops-demo/controllers"
+	"github.com/ruanbekker/go-devops-demo/models"
+	"github.com/ruanbekker/go-devops-demo/repositories"
+	"github.com/ruanbekker/go-devops-demo/services"
+	"github.com/ruanbekker/go-devops-demo/config"
 )
 
 func setupRouter() *gin.Engine {
