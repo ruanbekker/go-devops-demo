@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/go-devops-demo/models"
+	"github.com/ruanbekker/go-devops-demo/app/models"
 	"gorm.io/gorm"
 )
 

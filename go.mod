@@ -1,4 +1,4 @@
-module github.com/ruanbekker/go-devops-primer
+module github.com/ruanbekker/go-devops-demo
 
 go 1.22.0
 

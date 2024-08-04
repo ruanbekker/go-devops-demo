@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/go-devops-demo/models"
-	"github.com/go-devops-demo/repositories"
+	"github.com/ruanbekker/go-devops-demo/app/models"
+	"github.com/ruanbekker/go-devops-demo/app/repositories"
 )
 
 type UserService interface {
