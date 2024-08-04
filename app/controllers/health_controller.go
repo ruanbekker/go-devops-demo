@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"/go-devops-primer/config"
+	"github.com/ruanbekker/go-devops-primer/config"
 )
 
 type HealthController struct{}
