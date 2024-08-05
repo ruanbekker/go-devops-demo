@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: go-devops-demo
+  namespace: default
+  labels:
+    app.kubernetes.io/instance: go-devops-demo
+    app.kubernetes.io/name: app
+    app.kubernetes.io/version: 1.0.0
+    release: kube-prometheus-stack
+spec:
+  endpoints:
+  - interval: 30s
+    path: /metrics
+    port: http
+    scrapeTimeout: 10s
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: go-devops-demo
+      app.kubernetes.io/name: app

@@ -4,31 +4,58 @@ services:
   db:
     image: postgres:13-alpine
     environment:
-      POSTGRES_DB: mydb
+      POSTGRES_DB: userdb
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "userdb"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+    networks:
+      - demo-network
 
   app:
     build: 
       context: .
     environment:
-      DB_TYPE: ${DB_TYPE:-sqlite}
+      DB_TYPE: ${DB_TYPE:-postgresql}
       DB_STORAGE: ${DB_STORAGE:-memory}
       TRUSTED_PROXIES: ${TRUSTED_PROXIES:-"127.0.0.1,192.168.0.1"} 
       GIN_MODE: ${GIN_MODE:-test}
       DB_HOST: ${DB_HOST:-db}
       DB_USER: ${DB_USER:-user}
       DB_PASSWORD: ${DB_PASSWORD:-password}
-      DB_NAME: ${DB_NAME:-mydb}
+      DB_NAME: ${DB_NAME:-userdb}
       DB_PORT: 5432
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    networks:
+      - demo-network
+
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - app
+    networks:
+      - demo-network
 
 volumes:
   postgres_data: {}
+
+networks:
+  demo-network:
+    name: demo-network
