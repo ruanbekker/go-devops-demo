@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-devops-demo
+  namespace: default
+  labels:
+    app.kubernetes.io/instance: go-devops-demo
+    app.kubernetes.io/name: app
+    app.kubernetes.io/version: 1.0.0
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: go-devops-demo.127.0.0.1.nip.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: go-devops-demo
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific
